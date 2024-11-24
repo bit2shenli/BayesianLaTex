@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+%\usepackage{mathbbold}
+\usepackage{ctex}
+\usepackage{amsfonts,mathrsfs,amsthm,amssymb,amsmath}
+\usepackage{multirow}
+\usepackage{bbding}
+\usepackage{graphicx,color}
+\usepackage{rotating}
+\usepackage[justification=justified,singlelinecheck=off]{caption}
+\usepackage{bm}
+\usepackage{epstopdf}
+\usepackage[colorlinks,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithmicx,algorithm}
+\usepackage{natbib}
+\usepackage{longtable,booktabs}
+\usepackage{geometry}
+\usepackage{CJK}
+%\usepackage{times}
+%\usepackage{colortbl}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}%for the form (1.1)(2.8)
+\geometry{a4paper, left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\linespread{1.4}
+
+\renewcommand{\tablename}{\footnotesize\textbf{Table}}
+
+%\theoremstyle{plain} \newtheorem{theorem}{Theorem}
+%\theoremstyle{definition} \newtheorem{Defi}{Definition}
+%\theoremstyle{remark} \newtheorem{Rem}{Remark}
+%\theoremstyle{plain} \newtheorem{lemma}{Lemma}
+
+\newtheorem{defi}{\sc Definition}[section]
+\newtheorem{theorem}{\sc Theorem}[section]
+\newtheorem{lemma}{\sc Lemma}[section]
+\newtheorem{prop}{\sc Proposition}[section]
+\newtheorem{coro}{\sc Corollary}[section]
+\newtheorem{rema}{\sc Remark}[section]
+%\newtheorem{exam}{\sc Example}[section]
+\renewcommand{\theequation}{{\arabic{section}.\arabic{equation}}}
+
+%the four below to generate roman number
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\M}{\mathcal{M}}
+% 报错（Command \I already defined.LaTeX） \newcommand{\I}{\mathcal{I}}
+\newcommand{\whb}{\widehat{\bm\beta}}
+
+\makeatother
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+
+% 报告主体部分
+\begin{document}
+\title{贝叶斯课程报告}
+\date{}
+\author{shenyuchen$^1$		\\		XXXX大学 XXXX学院}		% \\ 转义+换行
+\maketitle
+
+% 摘要
+\begin{abstract}
+统计决策理论与贝叶斯分析
+统计决策理论与贝叶斯分析
+统计决策理论与贝叶斯分析
+统计决策理论与贝叶斯分析
+\end{abstract}
+
+% todo - 关键词？摘要
+\textbf{关键词}: Bayesian data
+
+\			% 换行，上面必须也要空一行
+
+\section{背景介绍}
+统计决策理论与贝叶斯分析
+统计决策理论与贝叶斯分析
+统计决策理论与贝叶斯分析
+统计决策理论与贝叶斯分析
+
+测试：
+
+$$a+b=1$$
+
+
+% 参考文献
+\begin{thebibliography}{100}
+	\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+	\expandafter\ifx\csname url\endcsname\relax
+	\def\url#1{\texttt{#1}}\fi
+	\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Battey et al.(2018)}]{battey2018distributed} 
+Battey, H., Fan, J., Liu, H., Lu, J. and Zhu, Z., 2018. Distributed testing and estimation under sparse high dimensional models. \textit{Annals of statistics}, \textbf{46}, 1352–1382.
+
+\bibitem[Chang et al.(2017)]{chang2017divide}
+Chang, X., Lin, S.B. and Wang, Y., 2017. Divide and conquer local average regression. \textit{Electronic Journal of Statistics}, \textbf{11}, 1326-1350.
+
+\end{thebibliography}
+
+
+\end{document}
