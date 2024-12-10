@@ -16,6 +16,7 @@
 \usepackage{longtable,booktabs}
 \usepackage{geometry}
 \usepackage{CJK}
+\usepackage{comment}  % 加载 comment 包
 %\usepackage{times}
 %\usepackage{colortbl}
 %\renewcommand{\theequation}{\thesection.\arabic{equation}}%for the form (1.1)(2.8)
@@ -55,9 +56,9 @@
 
 % 报告主体部分
 \begin{document}
-\title{贝叶斯课程报告}
+\title{羽毛球球员表现的贝叶斯分析：\\ 胜率与多重因素的关系}
 \date{}
-% todo 修改姓名、学校、学院
+
 \author{shenyuchen$^1$		\\		XXXX大学 XXXX学院}		% \\ 转义+换行
 \maketitle
 
@@ -70,7 +71,7 @@
 \end{abstract}
 
 % todo - 关键词？摘要
-\textbf{关键词}: Bayesian data
+\textbf{关键词}: 贝叶斯；羽毛球；国际羽毛球联合会
 
 \			% 换行，上面必须也要空一行
 
@@ -81,8 +82,17 @@
 统计决策理论与贝叶斯分析
 
 测试：
-
 $$a+b=1$$
+
+\section{数据收集与预处理}
+
+\section{贝叶斯分析模型}
+
+\section{结果分析与讨论}
+
+\section{结论}
+
+$$P(A|B)=\theta^2	\sum_{i = 0}^{\infty}	\{\theta (1-\theta ) \}^i = \frac{\theta ^2}{\theta ^2 - \theta +1}    $$
 
 
 % 参考文献
@@ -102,3 +112,5 @@ Chang, X., Lin, S.B. and Wang, Y., 2017. Divide and conquer local average regres
 
 
 \end{document}
+
+

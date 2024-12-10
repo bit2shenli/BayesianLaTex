@@ -1,5 +1,19 @@
-# BayesianLaTex
+# Bayesian LaTex
 NUDT - 统计决策理论与贝叶斯分析大作业（LaTex）
+
+
+# TODO
+- [ ] 章鱼小偷进村的故事，由果推因
+- [ ] 修改姓名、学校、学院
+- [x] ~~朴素贝叶斯~~
+
+
+羽毛球球员表现的贝叶斯分析：胜率与多重因素的关系
+```
+题目描述：利用贝叶斯方法分析羽毛球比赛的历史数据，建立一个预测模型，预测比赛结果（胜负）。可以考虑使用球员的历史表现、排名、比赛场地等变量来进行预测。
+研究内容：建立贝叶斯分类模型（贝叶斯网络、支持向量机、决策树等），分析哪些因素（如排名、赛季表现、年龄、比赛场地类型、对手的水平等）对比赛结果的影响最大。
+```
+
 
 
 # 安装 LaTex
@@ -10,3 +24,34 @@ NUDT - 统计决策理论与贝叶斯分析大作业（LaTex）
 ```bash
 Ctrl + Alt + B              # 运行编译命令，生成 PDF 文件 ====> 通过 VSCode 的面板 Ctrl + Shift + P 再输入 Latex Workshop: Build LaTeX project 
 ```
+
+# LaTex 常用语法
+```
+% 注释
+\begin{comment}
+\subsection{子章节}
+123
+
+\subsubsection{子章节的子章节}
+123
+
+\begin{enumerate}
+	\item 123
+	\item 123
+\end{enumerate}
+
+\begin{itemize}
+	\item 123
+	\item 123
+\end{itemize}
+
+\begin{description}
+	\item[123]
+	\item[123] 
+\end{description}
+
+\end{comment}
+```
+
+# 参考信息
+[BWF Badminton（国际羽毛球联合会官网）](https://bwfbadminton.com/zh-cn/)
