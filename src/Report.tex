@@ -178,14 +178,14 @@ python 爬虫（chatgpt） + 清洗数据
 其中 $\sigma(\theta)$ 是一个激活函数（比如：sigmoid）将参数 $\theta$ 映射到 [0,1] 范围，表示胜利的概率。
 
 \subsection{模型构建}
-使用的数据包括如下几个部分：
-\begin{enumerate}
-	\item 总得分 (\text{total\_scores})
-	\item 比赛轮次 (\text{rounds\_per\_match})
-	\item 最大连续得分 (\text{max\_consecutive\_points})
-	\item 赛点次数 (\text{game\_points})
-	\item 胜负情况 (\text{victory\_labels})
-	\end{enumerate}
+使用的数据包括如下五个部分：
+\begin{itemize}
+	\item 主赛事总得分 (\text{total\_scores})：主赛事总得分    运动员在本场主赛事中的总比分。注意每一场不一定是在21分时结束，可能出现延长比赛的情况，同时，也可能发生对手或本人因伤病或其他原因弃赛的情况，这些都将影响最终的总比分。注意，延长赛：如果一局比赛的比分进入到21分之后，两位选手或队伍的得分相差不到两分（例如20-20），这时比赛会进入加赛，直到一方领先2分为止。这种加赛通常没有上限，直到有一方完成领先。
+	\item 对局轮次 (\text{rounds\_number})：一般是三局两胜制，也不排除五局三胜，每场主赛事的规则由活动方规定。
+	\item 最大连续得分 (\text{max\_consecutive\_points})：与不同运动员对赛时的单次对局时的最大连续得分的数据。
+	\item 赛点次数 (\text{game\_points})：羽毛球中的“赛点”指的是比赛中一方可以赢得比赛的关键时刻，即如果该方赢得当前的分数，便会最终获胜。赛点次数是与不同运动员对赛时的单次对局时的赛点次数。
+	\item 胜负情况 (\text{victory\_labels})：与不同运动员对赛时的单次对局时的胜负情况。
+	\end{itemize}
 
 
 \subsection{马尔可夫链蒙特卡罗（MCMC）方法}
