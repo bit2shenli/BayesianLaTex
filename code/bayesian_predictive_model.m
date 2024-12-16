@@ -4,7 +4,7 @@ clc
 
 
 %% 加载数据
-load('shi_yu_qi_datas.mat');
+load('ShiYuQi_table_datas.mat');
 
 % 将数据转化为合适的格式
 total_scores = total_scores(:);  % 展平数据
