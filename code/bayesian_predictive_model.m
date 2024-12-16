@@ -8,13 +8,13 @@ load('shi_yu_qi_datas.mat');
 
 % 将数据转化为合适的格式
 total_scores = total_scores(:);  % 展平数据
-rounds_per_match = rounds_per_match(:);  
+rounds_number = rounds_number(:);  
 max_consecutive_points = max_consecutive_points(:);
 game_points = game_points(:);
 victory_labels = victory_labels(:);
 
 % 将特征合并为一个矩阵（假设每个特征独立）
-X = [total_scores, rounds_per_match, max_consecutive_points, game_points];
+X = [total_scores, rounds_number, max_consecutive_points, game_points];
 y = victory_labels;  % 目标变量：胜负标签
 
 
