@@ -8,9 +8,7 @@ clc
 main_tournaments = ["LI-NING China Masters 2024", "VICTOR China Open 2024", "Korea Open 2024"]
 
 % 单次对局中的对手名
-opponents = [["Jonatan CHRISTIE", "Kunlavut VITIDSARN", "Chico Aura DWI WARDOYO", "Chia Hao LEE"],
-    ["Anthony Sinisuka GINTING", "Kantaphon WANGCHAROEN"],
-    ["LEE Cheuk Yiu", "NG Ka Long Angus", "SON Wan Ho"]]
+opponents = [["Jonatan CHRISTIE", "Kunlavut VITIDSARN", "Chico Aura DWI WARDOYO", "Chia Hao LEE"], ["Anthony Sinisuka GINTING", "Kantaphon WANGCHAROEN"], ["LEE Cheuk Yiu", "NG Ka Long Angus", "SON Wan Ho"]]
 
 %% 与不同运动员的对局
 % 主赛事总得分    运动员在本场主赛事中的总比分。注意每一场不一定是在21分时结束，可能出现延长比赛的情况，同时，也可能发生对手或本人因伤病或其他原因弃赛的情况，这些都将影响最终的总比分
@@ -31,5 +29,5 @@ game_points = [[0,4,3,5], [0, 3], [0, 2, 3]]
 victory_labels = [[0,1,1,1], [0, 1], [0, 1, 1]]
 
 % 保存数据到.mat文件
-save('shi_yu_qi_datas.mat', 'total_scores', 'rounds_number', ...
+save('ShiYuQi_table_datas.mat', 'total_scores', 'rounds_number', ...
     'max_consecutive_points', 'game_points', "victory_labels");
