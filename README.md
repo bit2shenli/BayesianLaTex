@@ -1,35 +1,21 @@
 # Bayesian LaTex
 NUDT - 统计决策理论与贝叶斯分析大作业（LaTex）
 
-
-```
-羽毛球球员表现的贝叶斯分析：胜率与多重因素的关系 
-题目描述：利用贝叶斯方法分析羽毛球比赛的历史数据，建立一个预测模型，预测比赛结果（胜负）。可以考虑使用球员的历史表现、排名、比赛场地等变量来进行预测。
-研究内容：建立贝叶斯分类模型（贝叶斯网络、支持向量机、决策树等），分析哪些因素（如排名、赛季表现、年龄、比赛场地类型、对手的水平等）对比赛结果的影响最大。
-```
-```
-贝叶斯推理模型
-
-以SHI Yu Qi男子单打为例，和他们相关的比赛数据有：
-
-[code]
-
-现在选择的贝叶斯推理模型（Bayesian Inference Model）是马尔可夫链蒙特卡罗（MCMC）方法，请依次详细列出怎么构建这个模型，并加以公式说明，如果需要编程请使用 matlab 并使用以上的数据来预测下一局对战的胜利概率
-```
-
+主比赛：表示一场官方的大比赛
+对局：	表示同一个运动员与不同人的小对局
 
 # TODO
 - [X] 将code参数命名解释加入论文中
 - [X] 实力值 = 赛点次数 + 最大连续得分 + 对局轮次（暂定3种）
-- [ ] 章鱼小偷进村的故事，由果推因
-- [x] ~~朴素贝叶斯~~
-- [ ] ？？加入对手国家的数据，分析对抗每个国家的胜率比较（这样的话就要加入对手每局对战赢得的球数据了...）
+- [ ] ~~章鱼小偷进村的故事，由果推因~~
+- [ ] ~~朴素贝叶斯~~
+- [ ] ~~？？加入对手国家的数据，分析对抗每个国家的胜率比较（这样的话就要加入对手每局对战赢得的球数据了...）~~
 - [ ] 将文章中的 todo 解决掉
 
 
 # code 文件夹说明
-data.m								用于收集 SHI Yu Qi 在国际羽毛球联合会官网中的比赛数据
-bayesian_predictive_model.m			贝叶斯模型预测胜利
+- table_datas.m，用于收集 SHI Yu Qi 在国际羽毛球联合会官网中的比赛数据
+- bayesian_predictive_model.m，贝叶斯模型预测胜利
 
 
 # LaTex
@@ -76,6 +62,18 @@ bayesian\_predictive\_model.m	% 下划线前面必须要加 \_，否则报错
 
 ```
 
-# 参考信息
-[BWF Badminton（国际羽毛球联合会官网）](https://bwfbadminton.com/zh-cn/)
-[Create LaTeX tables online）](https://www.tablesgenerator.com/)
+# 参考文献
+- Wang, Z. and Chu, X., 2021. 贝叶斯决策理论对复杂运动决策中运动预期的启发——以
+网球和足球为例. Psychological Science Progress, 7, 1300–1312.
+- D. F. Percy.A Mathematical Analysis of Badminton Scoring Systems[J].Operational Research Applied to Sports, 2015：181-200.8
+- Niu, Z., 2012. 基于贝叶斯网络的NBA比分预测和球员能力评估模型. Master’s Thesis,
+Huazhong University of Science and Technology.
+- BWF, 2024. BWF Badminton (羽毛球世界联合会官网). Available at: https://
+bwfbadminton.com/zh-cn/. Accessed on: December 17, 2024.
+- Strings and Paddles, 2024. The History of Badminton. Available at: https://
+stringsandpaddles.com/the-history-of-badminton/. Accessed on: December 17, 2024.
+- BWFBadminton, 2024. Shi Yuqi – LI-NING China Masters 2024. Available at: https:
+//bwfbadminton.com/zh-cn/player/57945/shi-yu-qi/. Accessed on: December 17, 2024.
+- [BWF Badminton（国际羽毛球联合会官网）](https://bwfbadminton.com/zh-cn/)
+- [Create LaTeX tables online）](https://www.tablesgenerator.com/)
+- [The History of Badminton](https://stringsandpaddles.com/the-history-of-badminton/)

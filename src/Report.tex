@@ -77,7 +77,7 @@
 \end{abstract}
 
 % TODO - 关键词？摘要
-\textbf{关键词}: 贝叶斯；羽毛球；国际羽毛球联合会
+\textbf{关键词}: 贝叶斯；羽毛球；羽毛球世界联合会
 
 
 \section{引言（Introduction）}
@@ -130,7 +130,7 @@
 1893年，由英格兰羽毛球协会（Badminton Association of England）发布，并成为现代羽毛球运动的基础。
 1934年，国际羽毛球联合会成立，当时称为 International Badminton Federation(IBF)。
 1992年，在巴塞罗那夏季奥运会，羽毛球首次成为正式的奥运项目。
-2006年，IBF 更名为羽毛球世界联合会 World Badminton Championships（BWF）。BWF 的总部在马来西亚吉隆坡，目前的成员国已经超过200+个国家。
+2006年，IBF 更名为羽毛球世界联合会 World Badminton Championships（BWF）\cite{bwf2024website}。BWF 的总部在马来西亚吉隆坡，目前的成员国已经超过200+个国家。\cite{historybadminton2024website}
 
 
 \subsection{研究目标}
@@ -141,7 +141,7 @@
 
 \section{数据收集与预处理（Data Collection \& Preprocessing）}
 \subsection{数据来源}
-Badminton World Federation \href{https://bwfbadminton.com/zh-cn/}{羽毛球世界联合会} 简称BWF，是羽毛球运动的全球管理机构，负责组织和管理国际羽毛球赛事，包括世界羽毛球锦标赛和世界羽毛球巡回赛等，提供关于羽毛球比赛的最新动态、赛事结果、运动员信息以及相关技术分析等内容。
+Badminton World Federation 简称 \cite{bwf2024website}，是羽毛球运动的全球管理机构，负责组织和管理国际羽毛球赛事，包括世界羽毛球锦标赛和世界羽毛球巡回赛等，提供关于羽毛球比赛的最新动态、赛事结果、运动员信息以及相关技术分析等内容。
 
 
 \subsection{预处理数据}
@@ -151,7 +151,7 @@ python 爬虫（chatgpt） + 清洗数据
 详细描述数据的特征及其重要性。
 \end{comment}
 
-以最新的2024年第47周的\href{https://bwfbadminton.com/zh-cn/player/57945/shi-yu-qi/}{“LI-NING China Masters 2024”}官方数据为例，可整理得以下表格数据：（如表 $\ref{fig:LI-NING China Masters 2024}$ 所示）
+以最新的2024年第47周的 \cite{shiYuqi2024website} 官方数据为例，可整理得以下表格数据：（如表 $\ref{fig:LI-NING China Masters 2024}$ 所示）
 \begin{table}[h!]
 	\centering
 	\begin{tabularx}{\textwidth}{|l|X|X|X|X|X|}
@@ -340,35 +340,47 @@ bayesian\_predictive\_model.m
 \section{总结与展望（Conclusion \& Prospect）}
 对于本模型，可以对一些实力值参数进行加权，比如最大连续得分比赛点次数和对局轮次肯定更重要。如果一个运动员在一场比赛中连续得分，那么他的实力值肯定是更大一些的，这也是符合我们直觉的。当然，这得通过实验验证，也有可能是对手的故意丢分，通过以自己最小的体力消耗，前期调动对手较大的体力值，从而在比赛前期保存自己的体力，为后期赢得比赛最终胜利所采取的比赛策略。
 
-除了上述三种实力值，可能影响预测结果的因素还有其他可以考虑的信息，比如球员的身体状况、比赛场地等，而且对于同一个对手也可以试试：
+除了上述三种实力值，可能影响预测结果的因素还有其他可以考虑的信息，比如球员的身体状况、比赛场地、排名、赛季表现、年龄、比赛场地类型、对手的水平等，而且对于同一个对手也可以试试：
 \begin{itemize}
 	\item 通过分析运动员本人与同一个人多次对战的数据，进而预测出运动员本人下一次与同一个人对战胜利概率。
 	\item 还可以通过分析对手与不同其他运动员对战的数据，分析出最优战胜该对手的运动员推荐，以较低的代价赢得比赛。
 \end{itemize}
 
-除了贝叶斯推理，还可以尝试使用其他机器学习方法（如决策树、随机森林等）进行对比分析。
+本文也只分析了男子单打、还可以从女子单打、男子双打、女子双打、男女混双，这四个比赛模式分析。
+
+同时贝叶斯分类模型，还可以尝试使用其他机器学习方法（如支持向量机、决策树、随机森林等）进行对比分析。
 
 
 % 参考文献
-\begin{comment}
-	A mathematical analysis of badminton scoring systems
-
-	羽毛球的历史介绍：https://stringsandpaddles.com/the-history-of-badminton/
-\end{comment}
 \begin{thebibliography}{100}
 	\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 	\expandafter\ifx\csname url\endcsname\relax
 	\def\url#1{\texttt{#1}}\fi
 	\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
+\bibitem[{Wang and Chu(2021)}]{wang2021bayesian}
+Wang, Z. and Chu, X., 2021. 贝叶斯决策理论对复杂运动决策中运动预期的启发——以网球和足球为例. \textit{Psychological Science Progress}, \textbf{7}, 1300–1312.
+\bibitem[{Percy(2015)}]{percy2015mathematical} 
+D. F. Percy.A Mathematical Analysis of Badminton Scoring Systems[J].\textit{Operational Research Applied to Sports}, 2015：181-200.
+\bibitem[{Niu(2012)}]{niu2012bayesian}
+Niu, Z., 2012. 基于贝叶斯网络的NBA比分预测和球员能力评估模型. \textit{Master's Thesis}, Huazhong University of Science and Technology.
+
+
+\bibitem[{BWF(2024)}]{bwf2024website}
+BWF, 2024. BWF Badminton (羽毛球世界联合会官网). Available at: \url{https://bwfbadminton.com/zh-cn/}. Accessed on: December 17, 2024.
+\bibitem[{History Of Badminton(2024)}]{historybadminton2024website}
+Strings and Paddles, 2024. The History of Badminton. Available at: \url{https://stringsandpaddles.com/the-history-of-badminton/}. Accessed on: December 17, 2024.
+\bibitem[{ShiYuQi in LI-NING China Masters(2024)}]{shiYuqi2024website}
+BWFBadminton, 2024. Shi Yuqi – LI-NING China Masters 2024. Available at: \url{https://bwfbadminton.com/zh-cn/player/57945/shi-yu-qi/}. Accessed on: December 17, 2024.
+
+
+
+
 \bibitem[{Battey et al.(2018)}]{battey2018distributed} 
 Battey, H., Fan, J., Liu, H., Lu, J. and Zhu, Z., 2018. Distributed testing and estimation under sparse high dimensional models. \textit{Annals of statistics}, \textbf{46}, 1352–1382.
 
-\bibitem[Chang et al.(2017)]{chang2017divide}
-Chang, X., Lin, S.B. and Wang, Y., 2017. Divide and conquer local average regression. \textit{Electronic Journal of Statistics}, \textbf{11}, 1326-1350.
 
 \end{thebibliography}
-
 
 \end{document}
 
