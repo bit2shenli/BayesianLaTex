@@ -20,7 +20,7 @@
 \usepackage{CJK}
 \usepackage{comment}  % 加载 comment 包
 % \usepackage{minted}	  % 代码包
-% \usepackage{array}  % 导入 array 宏包
+\usepackage{array}  % 导入 array 宏包
 % \usepackage{ragged2e}  % 提供 \RaggedRight
 \usepackage{tabularx}  % 导入 tabularx 宏包
 
@@ -112,19 +112,19 @@
 \subsection{研究背景}
 \begin{comment}
 	简要介绍羽毛球比赛的相关背景，为什么选择使用贝叶斯推理进行分析。
-	\end{comment}
+\end{comment}
 
 \begin{figure}[h]
 	\centering
 	\subfloat[中国的踢毽子]{\includegraphics[width=0.48 \linewidth]{../images/history_2_ti_jian_zi}}
 	\subfloat[国外打羽毛球的起源]{\includegraphics[width=0.48 \linewidth]{../images/history_1}}
 	\caption{羽毛球的发展历史}
-	\label{fig:histoy}
-	\end{figure}
+	\label{fig:histoys}
+\end{figure}
 
 
 随着体育事业的不断发展，羽毛球的体育赛事逐渐进入人们的视野。
-在中国，早在 2000 年前就有人玩一种叫做“踢毽子”的游戏。这个游戏通过用脚相互踢毽子，不仅是一种娱乐活动，还能锻炼人体的灵活性和协调性。（如图 $\ref{fig:histoy}$ 所示）
+在中国，早在 2000 年前就有人玩一种叫做“踢毽子”的游戏。这个游戏通过用脚相互踢毽子，不仅是一种娱乐活动，还能锻炼人体的灵活性和协调性。（如图 $\ref{fig:histoys}$ 所示）
 
 1877年，英国巴斯羽毛球俱乐部（Bath Badminton Club）在英国巴斯（Bath）首次制定了羽毛球的标准规则，这些规则包括场地尺寸、网高、比赛礼仪和打法等，为羽毛球运动提供了标准和依据，成为现代羽毛球的正式起源。
 1893年，由英格兰羽毛球协会（Badminton Association of England）发布，并成为现代羽毛球运动的基础。
@@ -139,7 +139,7 @@
 \end{comment}
 
 
-\section{数据收集与预处理（Data Collection and Preprocessing）}
+\section{数据收集与预处理（Data Collection \& Preprocessing）}
 \subsection{数据来源}
 Badminton World Federation \href{https://bwfbadminton.com/zh-cn/}{羽毛球世界联合会} 简称BWF，是羽毛球运动的全球管理机构，负责组织和管理国际羽毛球赛事，包括世界羽毛球锦标赛和世界羽毛球巡回赛等，提供关于羽毛球比赛的最新动态、赛事结果、运动员信息以及相关技术分析等内容。
 
@@ -151,7 +151,7 @@ python 爬虫（chatgpt） + 清洗数据
 详细描述数据的特征及其重要性。
 \end{comment}
 
-以最新的2024年第47周的\href{https://bwfbadminton.com/zh-cn/player/57945/shi-yu-qi/}{“LI-NING China Masters 2024”}官方数据为例，可整理得以下表格数据：
+以最新的2024年第47周的\href{https://bwfbadminton.com/zh-cn/player/57945/shi-yu-qi/}{“LI-NING China Masters 2024”}官方数据为例，可整理得以下表格数据：（如表 $\ref{fig:LI-NING China Masters 2024}$ 所示）
 \begin{table}[h!]
 	\centering
 	\begin{tabularx}{\textwidth}{|l|X|X|X|X|X|}
@@ -165,6 +165,7 @@ python 爬虫（chatgpt） + 清洗数据
 	\hline
 	\end{tabularx}
 	\caption{LI-NING China Masters 2024 Results}
+	\label{fig:LI-NING China Masters 2024}
 \end{table}
 
 
@@ -214,6 +215,9 @@ python 爬虫（chatgpt） + 清洗数据
 	\item 赛点次数 (\text{game\_points})：羽毛球中的“赛点”指的是比赛中一方可以赢得比赛的关键时刻，即如果该方赢得当前的分数，便会最终获胜。赛点次数是与不同运动员对赛时的单次对局时的赛点次数。
 	\item 胜负情况 (\text{victory\_labels})：与不同运动员对赛时的单次对局时的胜负情况。
 \end{itemize}
+
+为了方便后文的表述，我们在此约定，一个运动员的实力值由如下方式构成：实力值由对局轮次、大连续得分、赛点次数三个部分构成，且在本文中各自的权重无偏好，即其表达式：实力值 = 对局轮次 + 最大连续得分 + 赛点次数。
+
 
 我们的分类模型采用线性回归模型，用于表示数据与结果之间的关系。假设我们需要根据历史的比赛统计数据预测比赛的胜利与否（即胜负二分类问题），我们可做出如下定义：
 \begin{itemize}
@@ -271,7 +275,7 @@ python 爬虫（chatgpt） + 清洗数据
 \end{enumerate}
 
 
-\section{实验与结果（Experiment and Results）}
+\section{实验与结果（Experiment \& Results）}
 \begin{comment}
 介绍如何进行模型训练、验证和评估。
 
@@ -286,39 +290,63 @@ bayesian\_predictive\_model.m
 \begin{equation}
     P(y_{new}=1|x_{new})=\frac{1}{1+\exp(-(\beta_0+\beta_1x_{new1}+\beta_2x_{new2}+\beta_3x_{new3}))}
 \end{equation}
-其中，$x_{new}$ 是未来比赛的特征
+其中，$x_{new}$ 是未来比赛的特征。
+
+步骤1：通过三场主赛事，九场对局轮次的比赛数据，详见表格 $\ref{fig:three main tournaments}$。
+
+\renewcommand{\arraystretch}{1.2} % 调整行间距
+\begin{table}[h!]
+\centering
+\scriptsize % 缩小字体，防止超出边框
+\setlength{\tabcolsep}{3pt} % 减少列间距
+\begin{tabular}{|p{3.5cm}|p{3.8cm}|p{1.2cm}|p{1.2cm}|p{1.8cm}|p{1.2cm}|p{1.2cm}|}
+\hline
+\textbf{main tournaments} & \textbf{opponents} & \textbf{total scores} & \textbf{rounds number} & \textbf{max consecutive points} & \textbf{game points} & \textbf{victory labels} \\ \hline
+
+\multirow{4}{3.5cm}{LI-NING China Masters 2024} 
+& Jonatan CHRISTIE          & 33 & 2 & 4  & 0 & 0 \\ \cline{2-7}
+& Kunlavut VITIDSARN        & 42 & 2 & 6  & 4 & 1 \\ \cline{2-7}
+& Chico Aura DWI WARDOVO    & 42 & 2 & 7  & 3 & 1 \\ \cline{2-7}
+& Chia Hao LEE              & 42 & 2 & 7  & 5 & 1 \\ \hline
+
+\multirow{2}{3.5cm}{VICTOR China Open 2024} 
+& Anthony Sinisuka GINTING  & 19 & 2 & 4  & 0 & 0 \\ \cline{2-7}
+& Kantaphon WANGCHAROEN     & 24 & 2 & 10 & 3 & 1 \\ \hline
+
+\multirow{3}{3.5cm}{Korea Open 2024} 
+& LEE Cheuk Yiu             & 28 & 2 & 4  & 0 & 0 \\ \cline{2-7}
+& NG Ka Long Angus          & 42 & 2 & 5  & 2 & 1 \\ \cline{2-7}
+& SON Wan Ho                & 42 & 2 & 6  & 3 & 1 \\ \hline
+
+\end{tabular}
+\caption{LI-NING China Masters 2024、VICTOR China Open 2024、Korea Open 2024 三场主赛事的官方比赛数据}
+\label{fig:three main tournaments}
+\end{table}
+
+步骤2：我们使用工具进行仿真模拟，横轴（Match Number）表示相应场次，纵轴（Predicted Victory Probability）表示相应场次的赢得比赛预测概率的结果，详见图片 $\ref{fig:probability results}$。例如：
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../images/probability results}
+	\caption{根据历史比赛数据，预测相同比赛参数下不同数据的比赛胜利的概率}
+	\label{fig:probability results}
+\end{figure}
+
+对于第 5 场比赛（ X=5 ），对其胜利预测的概率为 0.389877（ Y=0.389877 ），与数据中的结果比较符合，最终对局结果确实输掉了（ victory labels=0 ）。
+
+对于第 4 场比赛（ X=4 ），对其胜利预测的概率为 0.994888（ Y=0.994888 ），也与数据中的结果符合。此时最大连续得分数为7（ max consecutive points=7 ），且赛点次数为 5（ game points=5 ），最终拿下本次对局（ victory labels=1 ）。
 
 
+\section{总结与展望（Conclusion \& Prospect）}
+对于本模型，可以对一些实力值参数进行加权，比如最大连续得分比赛点次数和对局轮次肯定更重要。如果一个运动员在一场比赛中连续得分，那么他的实力值肯定是更大一些的，这也是符合我们直觉的。当然，这得通过实验验证，也有可能是对手的故意丢分，通过以自己最小的体力消耗，前期调动对手较大的体力值，从而在比赛前期保存自己的体力，为后期赢得比赛最终胜利所采取的比赛策略。
 
+除了上述三种实力值，可能影响预测结果的因素还有其他可以考虑的信息，比如球员的身体状况、比赛场地等，而且对于同一个对手也可以试试：
+\begin{itemize}
+	\item 通过分析运动员本人与同一个人多次对战的数据，进而预测出运动员本人下一次与同一个人对战胜利概率。
+	\item 还可以通过分析对手与不同其他运动员对战的数据，分析出最优战胜该对手的运动员推荐，以较低的代价赢得比赛。
+\end{itemize}
 
-
-
-
-\section{讨论（Discussion）}
-\begin{comment}
-分析模型的优缺点，以及可能影响预测结果的因素（如球员状态、比赛场地等）。
-
-讨论结果的实际意义以及如何改进模型。
-\end{comment}
-
-
-
-
-
-
-
-
-\section{结论（Conclusion）}
-\begin{comment}
-总结研究结果，提出未来研究方向。
-模型改进：可以尝试加入更多的特征，如比赛场地、球员的身体状况等，改进模型的预测效果。
-
-其他机器学习方法：除了贝叶斯推理，还可以尝试使用其他机器学习方法（如决策树、随机森林等）进行对比分析。
-\end{comment}
-
-
-
-
+除了贝叶斯推理，还可以尝试使用其他机器学习方法（如决策树、随机森林等）进行对比分析。
 
 
 % 参考文献
