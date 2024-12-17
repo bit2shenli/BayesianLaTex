@@ -71,13 +71,19 @@
 \maketitle
 
 % 摘要
+\renewcommand{\abstractname}{摘要}
 \begin{abstract}
-	摘要摘要摘要摘要
-
+	本文主要从贝叶斯和羽毛球的发展开篇，阐述研究目标后，介绍羽毛球比赛数据的来源与预处理的数据样式。以此数据为可信基础，提取比赛表现相关的特征向量，为后续的建模奠定了基础。从模型概述、模型构建、马尔可夫链蒙特卡罗（MCMC）方法采样建立贝叶斯推理框架，实验部分展示模型获得的预测结果。最后，文章总结了研究的主要发现，探讨了模型的局限性，并对未来的研究方向进行了展望。
 \end{abstract}
 
-% TODO - 关键词？摘要
 \textbf{关键词}: 贝叶斯；羽毛球；羽毛球世界联合会
+
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+	This paper begins with an introduction to Bayesian inference and the development of badminton, followed by the research objectives. It then presents the source of the badminton match data and the preprocessing steps, including the data format. Using this data as a reliable foundation, feature vectors related to match performance are extracted to lay the groundwork for subsequent modeling. The paper provides an overview of the model, the construction process, and the application of the Markov Chain Monte Carlo (MCMC) method for sampling to build a Bayesian inference framework. In the experimental section, the predictive results obtained from the model are presented. Finally, the paper summarizes the main findings, discusses the limitations of the model, and offers prospects for future research directions.
+\end{abstract}
+
+\textbf{Keywords}: Bayesian; Badminton; Badminton World Federation; BWF
 
 
 \section{引言（Introduction）}
@@ -109,7 +115,7 @@
 起初只是停留在理论层面的发展，随着计算机技术的不断发展，尤其是从20世纪以来，贝叶斯方法已经成为现代统计学、人工智能、机器学习中的核心一环。
 
 
-\subsection{研究背景}
+\subsection{羽毛球的发展 \& BWF}
 \begin{comment}
 	简要介绍羽毛球比赛的相关背景，为什么选择使用贝叶斯推理进行分析。
 \end{comment}
@@ -137,6 +143,7 @@
 \begin{comment}
 	阐述你希望通过贝叶斯推理预测比赛结果，探索相关因素。
 \end{comment}
+羽毛球运动分为男子单打、女子单打、男子双打、女子双打、男女混双，本文的研究目标主要是针对，中国运动员男子单打选手，石宇奇的比赛数据（主赛事总得分、最大连续得分、赛点次数）进行预处理，并通过是对其胜率进行贝叶斯模型构建、推理、马尔可夫链蒙特卡罗（MCMC）方法采样，预测其相同比赛参数下不同数据比赛胜利的概率。
 
 
 \section{数据收集与预处理（Data Collection \& Preprocessing）}
@@ -151,7 +158,7 @@ python 爬虫（chatgpt） + 清洗数据
 详细描述数据的特征及其重要性。
 \end{comment}
 
-以最新的2024年第47周的 \cite{shiYuqi2024website} 官方数据为例，可整理得以下表格数据：（如表 $\ref{fig:LI-NING China Masters 2024}$ 所示）
+以最新的2024年第47周的 \cite{shiYuqi2024website} 官方数据为例，可整理得以下表格数据，见表 $\ref{fig:LI-NING China Masters 2024}$ 。
 \begin{table}[h!]
 	\centering
 	\begin{tabularx}{\textwidth}{|l|X|X|X|X|X|}
@@ -216,7 +223,7 @@ python 爬虫（chatgpt） + 清洗数据
 	\item 胜负情况 (\text{victory\_labels})：与不同运动员对赛时的单次对局时的胜负情况。
 \end{itemize}
 
-为了方便后文的表述，我们在此约定，一个运动员的实力值由如下方式构成：实力值由对局轮次、大连续得分、赛点次数三个部分构成，且在本文中各自的权重无偏好，即其表达式：实力值 = 对局轮次 + 最大连续得分 + 赛点次数。
+为了方便后文的表述，我们在此约定，一个运动员的实力值由对局轮次、大连续得分、赛点次数三个部分构成，且在本文中各自的权重无偏好，即其表达式：实力值 = 对局轮次 + 最大连续得分 + 赛点次数。
 
 
 我们的分类模型采用线性回归模型，用于表示数据与结果之间的关系。假设我们需要根据历史的比赛统计数据预测比赛的胜利与否（即胜负二分类问题），我们可做出如下定义：
@@ -323,7 +330,7 @@ bayesian\_predictive\_model.m
 \label{fig:three main tournaments}
 \end{table}
 
-步骤2：我们使用工具进行仿真模拟，横轴（Match Number）表示相应场次，纵轴（Predicted Victory Probability）表示相应场次的赢得比赛预测概率的结果，详见图片 $\ref{fig:probability results}$。例如：
+步骤2：我们使用工具进行仿真模拟，横轴（Match Number）表示相应场次，纵轴（Predicted Victory Probability）表示相应场次的赢得比赛预测概率的结果，详见图片 $\ref{fig:probability results}$。
 
 \begin{figure}[h]
 	\centering
@@ -331,6 +338,7 @@ bayesian\_predictive\_model.m
 	\caption{根据历史比赛数据，预测相同比赛参数下不同数据的比赛胜利的概率}
 	\label{fig:probability results}
 \end{figure}
+例如：
 
 对于第 5 场比赛（ X=5 ），对其胜利预测的概率为 0.389877（ Y=0.389877 ），与数据中的结果比较符合，最终对局结果确实输掉了（ victory labels=0 ）。
 
