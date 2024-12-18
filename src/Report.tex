@@ -23,6 +23,8 @@
 \usepackage{array}  % 导入 array 宏包
 % \usepackage{ragged2e}  % 提供 \RaggedRight
 \usepackage{tabularx}  % 导入 tabularx 宏包
+\usepackage{listings}  % 插入代码
+% todo \usepackage{xeCJK} % 支持中文		依赖于 XeTeX
 
 %\usepackage{times}
 %\usepackage{colortbl}
@@ -59,6 +61,27 @@
 
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\lstset{
+    language=Matlab,      % 设置代码的语言为 Matlab
+	extendedchars=true,   % 允许非 ASCII 字符
+    basicstyle=\ttfamily, % 设置代码字体为等宽字体
+    numbers=left,         % 显示行号
+    numberstyle=\tiny,    % 行号的字体样式
+    stepnumber=1,         % 行号递增的步长
+    numbersep=5pt,        % 行号与代码之间的间距
+    % backgroundcolor=\color{lightgray}, % 背景色
+    frame=single,         % 代码框
+    captionpos=b,         % 标题位置
+    breaklines=true,      % 自动换行
+    showstringspaces=false,  	 % 不显示字符串中的空格
+    keywordstyle=\color{blue},   % 关键词样式
+    commentstyle=\color{green},  % 注释样式
+    stringstyle=\color{red},     % 字符串样式
+	commentstyle=\color{gray},   % 设置注释的样式为灰色
+	literate={\%\%}{\%\%}{2},    % 特别处理 `%%`，让它正确显示
+	literate={\%}{\%}{1}      	 % 特别处理 `%` 符号，让它正确显示
+}
 
 
 % 报告主体部分
@@ -372,6 +395,19 @@ Strings and Paddles, 2024. The History of Badminton. Available at: \url{https://
 BWFBadminton, 2024. Shi Yuqi – LI-NING China Masters 2024. Available at: \url{https://bwfbadminton.com/zh-cn/player/57945/shi-yu-qi/}. Accessed on: December 17, 2024.
 
 \end{thebibliography}
+
+\appendix
+\section{附录：$table\_datas\_demo_en.m$}
+使用预处理后的数据，将主赛事名称（main tournaments）、单次对局中的对手名（opponents）、主赛事总得分 (total scores)、对局轮次 (rounds number)、最大连续得分 (max consecutive points)、赛点次数 (game points)、胜负情况 (victory labels)数据保存在 $ShiYuQi\_table\_datas.mat$ 文件中，供其他文件读取使用。
+
+todo \lstinputlisting[language=Matlab]{../code/table_datas_demo_en.m}
+
+
+\section{附录：$bayesian\_predictive\_model\_en.m$}
+通过读取预处理的数据 $ShiYuQi\_table\_datas.mat$ 构造贝叶斯推理模型，预测中国运动员选手石宇奇，在相同比赛参数下不同数据的比赛胜利的概率，并绘制出横坐标为比赛场次纵坐标对应胜利的预测概率。
+
+todo \lstinputlisting[language=Matlab]{../code/bayesian_predictive_model_en.m}
+
 
 \end{document}
 
