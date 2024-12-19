@@ -25,6 +25,7 @@
 \usepackage{tabularx}  % 导入 tabularx 宏包
 \usepackage{listings}  % 插入代码
 % TODO \usepackage{xeCJK} % 支持中文		依赖于 XeTeX
+\usepackage{authblk}
 
 %\usepackage{times}
 %\usepackage{colortbl}
@@ -87,10 +88,17 @@
 % 报告主体部分
 \begin{document}
 \title{羽毛球球员表现的贝叶斯分析：\\ 多重因素下的胜率}
-\date{}
+\date{\today}
 
 % TODO
-\author{shenyuchen$^1$\\国防科技大学 \quad 智能科学学院}		% \qquad 更宽
+\author[1,2]{shenyuchen\thanks{Email: shenli24@nudt.edu.cn}}
+
+\affil[1]{国防科技大学, 智能科学学院, 湖南, 410003}
+\affil[2]{中国兵器装备集团自动化研究所有限公司智能制造事业部, 四川 绵阳, 621000}
+
+% 作者的英文介绍 TODO
+
+
 \maketitle
 
 % 摘要
