@@ -24,7 +24,7 @@
 % \usepackage{ragged2e}  % 提供 \RaggedRight
 \usepackage{tabularx}  % 导入 tabularx 宏包
 \usepackage{listings}  % 插入代码
-% todo \usepackage{xeCJK} % 支持中文		依赖于 XeTeX
+% TODO \usepackage{xeCJK} % 支持中文		依赖于 XeTeX
 
 %\usepackage{times}
 %\usepackage{colortbl}
@@ -86,11 +86,11 @@
 
 % 报告主体部分
 \begin{document}
-\title{羽毛球球员表现的贝叶斯分析：\\ 多重因素下的胜率}		% TODO 使用贝叶斯推理分析和预测体育比赛结果
+\title{羽毛球球员表现的贝叶斯分析：\\ 多重因素下的胜率}
 \date{}
 
 % TODO
-\author{shenyuchen$^1$		\\		XXXX大学 XXXX学院}		% \\ 转义+换行
+\author{shenyuchen$^1$\\国防科技大学 \quad 智能科学学院}		% \qquad 更宽
 \maketitle
 
 % 摘要
@@ -175,11 +175,6 @@ Badminton World Federation 简称 \cite{bwf2024website}，是羽毛球运动的�
 
 
 \subsection{预处理数据}
-\begin{comment}
-	TODO
-python 爬虫（chatgpt） + 清洗数据
-详细描述数据的特征及其重要性。
-\end{comment}
 
 以最新的2024年第47周的 \cite{shiYuqi2024website} 官方数据为例，可整理得以下表格数据，见表 $\ref{fig:LI-NING China Masters 2024}$ 。
 \begin{table}[h!]
@@ -400,13 +395,13 @@ BWFBadminton, 2024. Shi Yuqi – LI-NING China Masters 2024. Available at: \url{
 \section{附录：$table\_datas\_demo\_en.m$}
 使用预处理后的数据，将主赛事名称（main tournaments）、单次对局中的对手名（opponents）、主赛事总得分 (total scores)、对局轮次 (rounds number)、最大连续得分 (max consecutive points)、赛点次数 (game points)、胜负情况 (victory labels)数据保存在 $ShiYuQi\_table\_datas.mat$ 文件中，供其他文件读取使用。
 
-todo \lstinputlisting[language=Matlab]{../code/table_datas_demo_en.m}
+\lstinputlisting[language=Matlab]{../code/table_datas_demo_en.m}
 
 
 \section{附录：$bayesian\_predictive\_model\_en.m$}
 通过读取预处理的数据 $ShiYuQi\_table\_datas.mat$ 构造贝叶斯推理模型，预测中国运动员选手石宇奇，在相同比赛参数下不同数据的比赛胜利的概率，并绘制出横坐标为比赛场次纵坐标对应胜利的预测概率。
 
-todo \lstinputlisting[language=Matlab]{../code/bayesian_predictive_model_en.m}
+\lstinputlisting[language=Matlab]{../code/bayesian_predictive_model_en.m}
 
 
 \end{document}
